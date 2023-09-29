@@ -1,21 +1,34 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "target": "ES2022", // Versão de Compilação do NODE - TARGETS
+    "sourceMap": true,
+    "outDir": "dist",  // Pasta para gerar a Build - TARGETS
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "module": "CommonJS",
+    "forceConsistentCasingInFileNames": true, // Checkagem de importações para suporte a todas as plataformas - TARGETS
+    "moduleResolution": "node", // Importar arquivos de uma pasta ou arquivo diretamente - MODULOS
+    "baseUrl": "./src",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
     "declaration": true,
     "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "typeRoots": ["node_modules/@types", "src/@types"],
+    "paths":{
+        // "@user/*": ["@modules/user/*"],
+        // "@token/*": ["@modules/token/*"],
+        // "@shared/*": ["@modules/shared/*"],
+        // "@order/*": ["@modules/order/*"],
+        // "@orderLogger/*": ["@modules/orderLogger/*"],
+        // "@code-gen/*": ["@code-gen/*"]
+    },
+    "strict": true // Atalho para abrir propriedades do TS de todos
+  },
+  "include": [
+    "src/**/*.ts", 
+    "tests/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
 }
