@@ -1,4 +1,4 @@
-import { type UniqueEntityID } from '../UniqueEntityID.1'
+import { type UniqueEntityID } from '../uniqueEntityID'
 
 export interface IDomainEvent {
   dateTimeOccurred: Date

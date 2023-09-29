@@ -17,12 +17,8 @@
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["node_modules/@types", "src/@types"],
     "paths":{
-        // "@user/*": ["@modules/user/*"],
-        // "@token/*": ["@modules/token/*"],
-        // "@shared/*": ["@modules/shared/*"],
-        // "@order/*": ["@modules/order/*"],
-        // "@orderLogger/*": ["@modules/orderLogger/*"],
-        // "@code-gen/*": ["@code-gen/*"]
+        "@user/*": ["user/*"],
+        "@shared/*": ["shared/*"]
     },
     "strict": true // Atalho para abrir propriedades do TS de todos
   },

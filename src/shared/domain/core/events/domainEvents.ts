@@ -2,7 +2,7 @@
 import { Logger } from '@nestjs/common'
 
 import { type AggregateRoot } from '../aggregateRoot'
-import { type UniqueEntityID } from '../UniqueEntityID.1'
+import { type UniqueEntityID } from '../uniqueEntityID'
 import { type IDomainEvent } from './IDomainEvent.contract'
 
 /* eslint-disable @typescript-eslint/no-extraneous-class */

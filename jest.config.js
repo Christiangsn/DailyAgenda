@@ -25,7 +25,9 @@ module.exports = {
     maxWorkers: 1,
     clearMocks: true,
     moduleNameMapper: {
-      '@/tests/(.+)': '<rootDir>/tests/$1'
+      '@/tests/(.+)': '<rootDir>/tests/$1',
+      '@user/(.*)': '<rootDir>/src/user/$1',
+      '@shared/(.*)': '<rootDir>/src/shared/$1'
     },
     testMatch: ['**/**.spec.ts'],
     modulePaths: [
