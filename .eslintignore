@@ -1,0 +1,12 @@
+node_modules
+dist
+coverage
+src/**/**.md
+src/@code-gen/schema.gql
+src/code-gen.types.ts
+src/code-gen.types.ts
+public/*
+public
+public/
+docs/
+docs
