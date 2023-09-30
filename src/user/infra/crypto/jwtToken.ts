@@ -1,4 +1,4 @@
-import { sign } from 'jsonwebtoken'
+import { type JwtPayload, sign, verify } from 'jsonwebtoken'
 
 import { type IEncryptedContract } from '@user/domain/contracts/cripto/encrypted.contract'
 import { ENVIROMENT } from '@config/enviroment'
@@ -15,5 +15,16 @@ export class JwtToken implements IEncryptedContract {
     })
 
     return generationToken
+  }
+
+  public async validate (token: string): Promise<string | null> {
+    try {
+      const existsToken = verify(token, this.secret) as JwtPayload
+      if (!existsToken?.sub) return null
+
+      return existsToken.sub
+    } catch {
+      return null
+    }
   }
 }
