@@ -27,7 +27,8 @@ module.exports = {
     moduleNameMapper: {
       '@/tests/(.+)': '<rootDir>/tests/$1',
       '@user/(.*)': '<rootDir>/src/user/$1',
-      '@shared/(.*)': '<rootDir>/src/shared/$1'
+      '@shared/(.*)': '<rootDir>/src/shared/$1',
+      '@config/(.*)': '<rootDir>/src/config/$1'
     },
     testMatch: ['**/**.spec.ts'],
     modulePaths: [

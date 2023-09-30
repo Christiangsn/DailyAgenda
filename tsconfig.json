@@ -18,7 +18,8 @@
     "typeRoots": ["node_modules/@types", "src/@types"],
     "paths":{
         "@user/*": ["user/*"],
-        "@shared/*": ["shared/*"]
+        "@shared/*": ["shared/*"],
+        "@config/*": ["config/*"]
     },
     "strict": true // Atalho para abrir propriedades do TS de todos
   },
