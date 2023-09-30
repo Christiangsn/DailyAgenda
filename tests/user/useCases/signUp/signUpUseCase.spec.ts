@@ -2,7 +2,7 @@ import { ENVIROMENT } from '@config/enviroment'
 import { mock, type MockProxy } from 'jest-mock-extended'
 import { sign } from 'jsonwebtoken'
 
-import { SignInUseCase } from '@user/useCases/signIn/signInUseCase'
+import { SignUpUseCase } from '@user/useCases/signUp/signUpUseCase'
 import { type IUserRepository } from '@user/domain/contracts/repo/userRepository.contract'
 import { type IEncryptedContract } from '@user/domain/contracts/cripto/encrypted.contract'
 
@@ -15,14 +15,14 @@ describe('Sign In useCase', () => {
 
   let fakeUserRepo: MockProxy<IUserRepository>
   let fakeCrypto: MockProxy<IEncryptedContract>
-  let sut: SignInUseCase
+  let sut: SignUpUseCase
 
   beforeEach(() => {
     jest.clearAllMocks()
     fakeUserRepo = mock()
     fakeCrypto = mock()
 
-    sut = new SignInUseCase(fakeUserRepo, fakeCrypto)
+    sut = new SignUpUseCase(fakeUserRepo, fakeCrypto)
   })
 
   it('Should call repo/crypto and save user with success', async () => {

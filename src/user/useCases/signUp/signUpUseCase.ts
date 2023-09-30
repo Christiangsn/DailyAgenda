@@ -4,7 +4,7 @@ import { FullNameValueObject } from '../../domain/valuesObjects/fullNameValueObj
 import { EmailValueObject } from '@user/domain/valuesObjects/emailValueObject'
 import { Result, type Either, left } from '@shared/domain'
 import { useCases } from '@shared/domain/core/useCase'
-import { SignInUseCaseError } from './signInUseCases.errors'
+import { SignUpUseCaseError } from './signUpUseCases.errors'
 import { UserAggregate } from '@user/domain/aggregates/userAggregate'
 import { type IUserRepository } from '@user/domain/contracts/repo/userRepository.contract'
 import { type IEncryptedContract } from '@user/domain/contracts/cripto/encrypted.contract'
@@ -16,19 +16,17 @@ type ICreateUserInput = {
 }
 
 type ICreateUserOutput = Either<
-SignInUseCaseError.InvalidParamError,
+SignUpUseCaseError.InvalidParamError,
 Result<{
   token: string
 }>
 >
 
-export class SignInUseCase extends useCases<ICreateUserInput> {
+export class SignUpUseCase {
   public constructor (
     private readonly userRepo: IUserRepository,
     private readonly crypto: IEncryptedContract
-  ) {
-    super('CreateUserUseCase')
-  }
+  ) { }
 
   public async run ({ email, fullName, password }: ICreateUserInput): Promise<ICreateUserOutput> {
     // Criando os objetos de valores
@@ -39,7 +37,7 @@ export class SignInUseCase extends useCases<ICreateUserInput> {
     // Validar se algum campo está invalido
     const validFields = Result.combine([emailOrError, fullNameNormalized, pass])
     if (validFields.isFailure) {
-      return left(new SignInUseCaseError.InvalidParamError(validFields.errorValue()))
+      return left(new SignUpUseCaseError.InvalidParamError(validFields.errorValue()))
     }
 
     // Criptografar a senha
