@@ -12,6 +12,7 @@
 ```javascript
     USER: Aggregate Root
 
+    ownerID: ValueObject
     title: string
     description: string
     duration: string

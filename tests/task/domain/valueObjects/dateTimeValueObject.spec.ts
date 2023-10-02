@@ -1,5 +1,5 @@
 import { Logger } from '@nestjs/common'
-import { DateTimeValueObject } from '@task/domain/valuesObjects/dateTImeValueObject'
+import { DateTimeValueObject } from '@task/domain/valuesObjects/dateTimeValueObject'
 
 describe('DateTimeValueObject', () => {
   it('should create a valid DateTimeValueObject', () => {
