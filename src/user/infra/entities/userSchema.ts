@@ -3,14 +3,14 @@ import { type Document } from 'mongoose'
 
 import { type IUserModel } from '@shared/domain/models/user.model'
 
-export type UserDocument = UserSchema & Document
+export type UserDocument = User & Document
 
 @Schema({
   autoCreate: true,
   timestamps: true,
   autoIndex: true
 })
-export class UserSchema implements IUserModel {
+export class User implements IUserModel {
   @Prop({ immutable: true, required: true, type: String, index: true })
   public readonly id!: string
 
@@ -30,4 +30,4 @@ export class UserSchema implements IUserModel {
   public updatedAt!: Date
 }
 
-export const UserSchemaFactory = SchemaFactory.createForClass(UserSchema)
+export const UserSchemaFactory = SchemaFactory.createForClass(User)

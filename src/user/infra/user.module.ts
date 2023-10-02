@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { MongooseModule } from '@nestjs/mongoose'
-import { UserSchema, UserSchemaFactory } from './entities/userSchema'
+import { User, UserSchemaFactory } from './entities/userSchema'
 import { UserRepository } from './repo/userRepository'
 import { JwtToken } from './crypto/jwtToken'
 import { SignUpController } from './controllers/signUp.controller'
@@ -11,7 +11,7 @@ import { SignUpUseCase } from '@user/useCases/signUp/signUpUseCase'
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forFeature([
-      { name: UserSchema.name, schema: UserSchemaFactory }
+      { name: User.name, schema: UserSchemaFactory }
     ])
   ],
   controllers: [

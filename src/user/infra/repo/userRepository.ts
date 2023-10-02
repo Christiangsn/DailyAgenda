@@ -1,4 +1,4 @@
-import { type UserDocument, UserSchema } from './../entities/userSchema'
+import { type UserDocument, User } from './../entities/userSchema'
 import { InjectModel } from '@nestjs/mongoose'
 import { type UserAggregate } from '@user/domain/aggregates/userAggregate'
 import { type IUserRepository } from '@user/domain/contracts/repo/userRepository.contract'
@@ -7,7 +7,7 @@ import { UserMapper } from './userMapper'
 
 export class UserRepository implements IUserRepository {
   public constructor (
-    @InjectModel(UserSchema.name)
+    @InjectModel(User.name)
     private readonly conn: Model<UserDocument>
   ) {}
 
