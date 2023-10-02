@@ -3,7 +3,7 @@ import { type Document } from 'mongoose'
 
 import { type ITaskModel } from '@shared/domain/models/task.model'
 
-export type UserDocument = Task & Document
+export type TaskDocument = Task & Document
 
 @Schema({
   autoCreate: true,
