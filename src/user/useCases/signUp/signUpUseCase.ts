@@ -8,6 +8,7 @@ import { SignUpUseCaseError } from './signUpUseCases.errors'
 import { UserAggregate } from '@user/domain/aggregates/userAggregate'
 import { type IUserRepository } from '@user/domain/contracts/repo/userRepository.contract'
 import { type IEncryptedContract } from '@user/domain/contracts/cripto/encrypted.contract'
+import { Inject, Logger } from '@nestjs/common'
 
 type ICreateUserInput = {
   fullName: string
@@ -16,6 +17,7 @@ type ICreateUserInput = {
 }
 
 type ICreateUserOutput = Either<
+SignUpUseCaseError.EmailAlreadyExists |
 SignUpUseCaseError.InvalidParamError,
 Result<{
   token: string
@@ -24,20 +26,28 @@ Result<{
 
 export class SignUpUseCase {
   public constructor (
+    @Inject('IUserRepository')
     private readonly userRepo: IUserRepository,
+    @Inject('IEncryptedContract')
     private readonly crypto: IEncryptedContract
   ) { }
 
   public async run ({ email, fullName, password }: ICreateUserInput): Promise<ICreateUserOutput> {
+    const emailIsExists = await this.userRepo.findOne({ email: email.trim() })
+    if (emailIsExists) {
+      return left(new SignUpUseCaseError.EmailAlreadyExists(), 401)
+    }
+
+    Logger.log(password)
     // Criando os objetos de valores
-    const emailOrError = EmailValueObject.create(email)
-    const fullNameNormalized = FullNameValueObject.normalize(fullName)
+    const emailOrError = EmailValueObject.create(email.trim())
+    const fullNameNormalized = FullNameValueObject.normalize(fullName.trim())
     const pass = PasswordValueObject.create(password)
 
     // Validar se algum campo está invalido
     const validFields = Result.combine([emailOrError, fullNameNormalized, pass])
     if (validFields.isFailure) {
-      return left(new SignUpUseCaseError.InvalidParamError(validFields.errorValue()))
+      return left(new SignUpUseCaseError.InvalidParamError(validFields.errorValue()), 401)
     }
 
     // Criptografar a senha

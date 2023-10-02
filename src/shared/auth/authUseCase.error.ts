@@ -5,8 +5,7 @@ export namespace AuthUseCaseError {
   export class NotProvidedToken extends Result<UseCaseError> {
     public constructor () {
       super(false, {
-        message: 'Anauthorization',
-        statusCode: 402
+        message: 'Anauthorization'
       })
     }
   }
@@ -14,8 +13,7 @@ export namespace AuthUseCaseError {
   export class InvalidToken extends Result<UseCaseError> {
     public constructor () {
       super(false, {
-        message: 'Invalid Token',
-        statusCode: 402
+        message: 'Invalid Token'
       })
     }
   }

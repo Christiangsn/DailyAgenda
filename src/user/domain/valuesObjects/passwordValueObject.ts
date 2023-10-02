@@ -50,11 +50,7 @@ export class PasswordValueObject extends ValueObject<IPasswordValueObjectProps> 
     return Result.ok<PasswordValueObject>(pass)
   }
 
-  public static create (password: string, isEmpty?: boolean): Result<PasswordValueObject> {
-    if (isEmpty) {
-      return Result.ok<PasswordValueObject>(new PasswordValueObject({ value: password }, false))
-    }
-
+  public static create (password: string): Result<PasswordValueObject> {
     const isEncrypt = this.#isEncryptPassword.test(password.toString())
     if (!isEncrypt) {
       const isValidPasswordLength = password.length >= 3 && password.length <= 20

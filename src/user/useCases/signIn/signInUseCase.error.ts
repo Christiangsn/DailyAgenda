@@ -5,8 +5,7 @@ export namespace SignInUseCaseError {
   export class EmailOrPasswordIsWrong extends Result<UseCaseError> {
     public constructor () {
       super(false, {
-        message: 'Email or password is wrong',
-        statusCode: 401
+        message: 'Email or password is wrong'
       })
     }
   }

@@ -1,4 +1,4 @@
-import { Prop, Schema } from '@nestjs/mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { type Document } from 'mongoose'
 
 import { type IUserModel } from '@shared/domain/models/user.model'
@@ -17,15 +17,17 @@ export class UserSchema implements IUserModel {
   @Prop({ required: true, index: true, type: String })
   public email!: string
 
-  @Prop({ type: String, select: false })
+  @Prop({ type: String })
   public password!: string
 
   @Prop({ type: String, index: true })
   public name!: string
 
-  @Prop({ type: Date, required: true })
+  @Prop({ type: Date, default: new Date() })
   public createdAt!: Date
 
-  @Prop({ type: Date, required: true })
+  @Prop({ type: Date, default: new Date() })
   public updatedAt!: Date
 }
+
+export const UserSchemaFactory = SchemaFactory.createForClass(UserSchema)

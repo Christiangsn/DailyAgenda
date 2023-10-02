@@ -1,7 +1,4 @@
 module.exports = {
-    moduleNameMapper: {
-      '@/tests/(.+)': '<rootDir>/tests/@integration/$1'
-    },
     testTimeout: 100000,
     collectCoverageFrom: [
       '<rootDir>/src/**/*.resolver.ts',
@@ -10,10 +7,16 @@ module.exports = {
       '!<rootDir>/src/@config/**',
       '!**/test/**'
     ],
+    clearMocks: true,
+    moduleNameMapper: {
+      '@/tests/(.+)': '<rootDir>/tests/e2e/$1',
+      '@user/(.*)': '<rootDir>/src/user/$1',
+      '@shared/(.*)': '<rootDir>/src/shared/$1',
+      '@config/(.*)': '<rootDir>/src/config/$1'
+    },
     coverageDirectory: 'coverage-integrations',
     testEnvironment: 'node',
     maxWorkers: 1,
-    clearMocks: true,
     transform: {
       '.+\\.ts$': 'ts-jest'
     },

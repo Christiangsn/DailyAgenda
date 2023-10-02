@@ -13,8 +13,7 @@ export interface IUseCases<DTO, Response> {
 export class InternalServerError extends Result<UseCaseError> {
   public constructor () {
     super(false, {
-      message: 'Internal Server Error',
-      statusCode: 500
+      message: 'Internal Server Error'
     })
   }
 }
