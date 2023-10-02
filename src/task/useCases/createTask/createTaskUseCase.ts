@@ -15,7 +15,7 @@ type ICreateTaskInput = {
   dateTime: Date
 }
 
-type ICreateUserOutput = Either<
+export type ICreateTaskOutput = Either<
 CreateTaskUseCaseError.InvalidParamError,
 Result<{
   message: string
@@ -28,7 +28,7 @@ export class CreateTaskUseCase {
     private readonly taskRepo: ITaskRepository
   ) {}
 
-  public async run (props: ICreateTaskInput): Promise<ICreateUserOutput> {
+  public async run (props: ICreateTaskInput): Promise<ICreateTaskOutput> {
     // Validar se o datetime é valido
     const dateTimeTaskOrError = DateTimeValueObject.create(props.dateTime)
     if (dateTimeTaskOrError.isFailure) {

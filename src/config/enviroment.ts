@@ -22,6 +22,7 @@ const envPath = (): string => {
 }
 
 void dotenv.config({ path: envPath() })
+
 export const ENVIROMENT = {
   /**
    * Verify that the environment
@@ -39,6 +40,8 @@ export const ENVIROMENT = {
   /**
    * @info `String connection to database`
    */
-  STRING_CONNECTION: process.env.STRING_CONNECTION ?? '',
-  MONGO_DATABASE_NAME: process.env.MONGO_DATABASE_NAME ?? 'dbteste'
+  STRING_CONNECTION: process.env.STRING_CONNECTION ?? 'mongodb://root:mongo@localhost:27017/', // string connection to database here
+  MONGO_DATABASE_NAME: process.env.MONGO_DATABASE_NAME ?? 'daily_agenda'
 }
+
+console.log(ENVIROMENT)

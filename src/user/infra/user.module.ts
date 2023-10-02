@@ -6,6 +6,8 @@ import { UserRepository } from './repo/userRepository'
 import { JwtToken } from './crypto/jwtToken'
 import { SignUpController } from './controllers/signUp.controller'
 import { SignUpUseCase } from '@user/useCases/signUp/signUpUseCase'
+import { SignInController } from './controllers/signIn.controller'
+import { SignInUseCase } from '@user/useCases/signIn/signInUseCase'
 
 @Module({
   imports: [
@@ -15,7 +17,8 @@ import { SignUpUseCase } from '@user/useCases/signUp/signUpUseCase'
     ])
   ],
   controllers: [
-    SignUpController
+    SignUpController,
+    SignInController
   ],
   providers: [
     /**
@@ -30,7 +33,8 @@ import { SignUpUseCase } from '@user/useCases/signUp/signUpUseCase'
     /**
      * @useCases `UseCases classes`
      */
-    { provide: 'SignUpUseCase', useClass: SignUpUseCase }
+    { provide: 'SignUpUseCase', useClass: SignUpUseCase },
+    { provide: 'SignInUseCase', useClass: SignInUseCase }
   ]
 })
 export class UserModule { }

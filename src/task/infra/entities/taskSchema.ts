@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
-import { type Document } from 'mongoose'
+import { type Query, type Document } from 'mongoose'
 
 import { type ITaskModel } from '@shared/domain/models/task.model'
 
@@ -28,6 +28,17 @@ export class Task implements ITaskModel {
 
   @Prop({ type: Date, required: true })
   public dateTime!: Date
+
+  @Prop({ type: Date, default: null, index: true })
+  public deletedAt?: Date | null
 }
 
 export const TaskSchemaFactory = SchemaFactory.createForClass(Task)
+
+TaskSchemaFactory.pre<Query<TaskDocument, TaskDocument>>('find', function () {
+  this.where({ deletedAt: null })
+})
+
+TaskSchemaFactory.pre<Query<TaskDocument, TaskDocument>>('findOne', function () {
+  this.where({ deletedAt: null })
+})

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
+import { UniqueEntityID } from '@shared/domain'
 import { type IUserModel } from '@shared/domain/models/user.model'
 import { UserAggregate } from '@user/domain/aggregates/userAggregate'
 import { EmailValueObject } from '@user/domain/valuesObjects/emailValueObject'
@@ -20,6 +21,6 @@ export class UserMapper {
       email: EmailValueObject.create(user.email).getResult(),
       name: FullNameValueObject.normalize(user.name).getResult(),
       password: PasswordValueObject.create(user.password).getResult()
-    }).getResult()
+    }, new UniqueEntityID(user.id)).getResult()
   }
 }

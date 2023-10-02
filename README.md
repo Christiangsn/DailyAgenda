@@ -1,73 +1,36 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## Introduction
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Methods is a powerful framework that enables developers to build high-performance and scalable web applications. It leverages popular technologies such as NestJS, GraphQL, and Mongoose to create flexible and modular applications.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Getting Started
 
-## Description
+To get started with Methods, you'll need to ensure you have the following prerequisites installed on your system:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1. **Node.js**: Methods requires Node.js version 18.x or higher. If you don't have Node.js installed, you can download the latest version from the official website: [Download Node.js](https://nodejs.org/)
 
-## Installation
+   Alternatively, if you prefer to manage multiple Node.js versions, you can use NVM (Node Version Manager). You can find installation instructions for NVM on its GitHub repository: [NVM GitHub Repository](https://github.com/nvm-sh/nvm)
+
+2. **npm**: npm (Node Package Manager) comes bundled with Node.js, so once you have Node.js installed, you'll also have npm available.
+
+Follow these steps to set up the Methods application:
+
+3. Install the application and its dependencies using npm. Open your terminal or command prompt, navigate to the project's root directory, and run the following command:
 
 ```bash
-$ npm install
+npm install
 ```
 
-## Running the app
 
-```bash
-# development
-$ npm run start
+## Main Libraries
 
-# watch mode
-$ npm run start:dev
+Methods is built using several powerful libraries and frameworks. Here are the main ones used in this project:
 
-# production mode
-$ npm run start:prod
-```
+1. **NestJS**: NestJS is the framework used to build the web application. It provides a solid foundation for developing scalable and maintainable Node.js applications. You can find more about NestJS on their official website: [NestJS](https://nestjs.com/)
 
-## Test
+2. **Mongoose**: Mongoose is used as the Object-Document Mapper (ODM) for MongoDB in Methods. It provides a straightforward and schema-based solution to model application data. To learn more about Mongoose, check their official documentation: [Mongoose](https://mongoosejs.com/)
 
-```bash
-# unit tests
-$ npm run test
+3. **Jest**: Jest is the testing framework used in Methods. It provides a simple and powerful way to test the application's code. You can find more information about Jest on their official website: [Jest](https://jestjs.io/)
 
-# e2e tests
-$ npm run test:e2e
+With these libraries and frameworks, Methods offers a robust and efficient foundation for building your web applications. Happy coding!
 
-# test coverage
-$ npm run test:cov
-```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).

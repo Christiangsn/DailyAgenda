@@ -2,6 +2,7 @@ import { Result, type Either, left, right } from '@shared/domain'
 import { type IEncryptedContract } from '@user/domain/contracts/cripto/encrypted.contract'
 import { type IUserRepository } from '@user/domain/contracts/repo/userRepository.contract'
 import { AuthUseCaseError } from './authUseCase.error'
+import { Inject } from '@nestjs/common'
 
 export type Input = {
   accessToken: string | null
@@ -17,6 +18,7 @@ Result<{
 
 export class AuthUseCase {
   public constructor (
+    @Inject('IEncryptedContract')
     private readonly crypto: IEncryptedContract
   ) { }
 

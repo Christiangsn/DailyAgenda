@@ -25,7 +25,6 @@ export class SignInUseCase {
   ) { }
 
   public async run ({ email, password }: ISignInInput): Promise<ICreateUserOutput> {
-    console.log('aqui')
     // procurar o usuário pelo email atráves do filtro
     const findUser = await this.userRepo.findOne({ email })
     if (!findUser) { // Se não existir retornar o erro de email ou password errado

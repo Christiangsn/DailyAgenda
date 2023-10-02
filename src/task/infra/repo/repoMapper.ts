@@ -25,6 +25,6 @@ export class TaskMapper {
       duration: task.duration,
       ownerID: OwnerIDValueObject.create(new UniqueEntityID(task.ownerID)).getResult(),
       title: task.title
-    }).getResult()
+    }, new UniqueEntityID(task.id)).getResult()
   }
 }

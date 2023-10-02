@@ -1,27 +1,26 @@
 import { Body, Controller, HttpCode, Inject, Logger, Post, Res } from '@nestjs/common'
+import { SignInUseCase } from '@user/useCases/signIn/signInUseCase'
 import { SignUpUseCase } from '@user/useCases/signUp/signUpUseCase'
 import { Response } from 'express'
 
-type SingUPDTO = {
-  fullName: string
+type SingINDTO = {
   email: string
   password: string
 }
 
-@Controller('/signUp')
-export class SignUpController {
+@Controller('/signIn')
+export class SignInController {
   public constructor (
-    @Inject('SignUpUseCase')
-    public readonly signUpUseCase: SignUpUseCase
+    @Inject('SignInUseCase')
+    public readonly signInUseCase: SignInUseCase
   ) {}
 
   @Post()
   @HttpCode(200)
-  public async execute (@Body() dto: SingUPDTO, @Res() res: Response) {
+  public async execute (@Body() dto: SingINDTO, @Res() res: Response) {
     try {
-      const request = await this.signUpUseCase.run({
+      const request = await this.signInUseCase.run({
         email: dto?.email,
-        fullName: dto?.fullName,
         password: dto?.password
       })
 

@@ -13,10 +13,11 @@ export class DateTimeValueObject extends ValueObject<TDateTimeValueObject> {
   public get value (): Date { return this.props.value }
 
   public static create (dateTime: Date): Result<DateTimeValueObject> {
-    if (!(dateTime instanceof Date)) {
+    const validDate = !isNaN(new Date(dateTime).getTime())
+    if (!validDate) {
       return Result.fail('Invalid Date')
     }
 
-    return Result.ok<DateTimeValueObject>(new DateTimeValueObject({ value: dateTime }))
+    return Result.ok<DateTimeValueObject>(new DateTimeValueObject({ value: new Date(dateTime) }))
   }
 }
