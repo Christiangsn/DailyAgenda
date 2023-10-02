@@ -19,7 +19,8 @@
     "paths":{
         "@user/*": ["user/*"],
         "@shared/*": ["shared/*"],
-        "@config/*": ["config/*"]
+        "@config/*": ["config/*"],
+        "@task/*": ["task/*"]
     },
     "strict": true // Atalho para abrir propriedades do TS de todos
   },
