@@ -28,7 +28,7 @@ export class TaskAggregate extends AggregateRoot<TTaskAggregateValueObject> {
   public get duration () { return this.props.duration.trim() }
   public get dateTime () { return this.props.dateTime }
 
-  public static create (props: TTaskAggregateValueObject, id?: UniqueEntityID): Result<TTaskAggregateValueObject> {
-    return Result.ok<TTaskAggregateValueObject>(new TaskAggregate(props, id))
+  public static create (props: TTaskAggregateValueObject, id?: UniqueEntityID): Result<TaskAggregate> {
+    return Result.ok<TaskAggregate>(new TaskAggregate(props, id))
   }
 }

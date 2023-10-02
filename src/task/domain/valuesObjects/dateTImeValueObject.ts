@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common'
 import { Result, ValueObject } from '@shared/domain'
 
 type TDateTimeValueObject = {
@@ -11,11 +12,11 @@ export class DateTimeValueObject extends ValueObject<TDateTimeValueObject> {
 
   public get value (): Date { return this.props.value }
 
-  public static create (dateTime: Date): Result<TDateTimeValueObject> {
+  public static create (dateTime: Date): Result<DateTimeValueObject> {
     if (!(dateTime instanceof Date)) {
       return Result.fail('Invalid Date')
     }
 
-    return Result.ok<TDateTimeValueObject>({ value: dateTime })
+    return Result.ok<DateTimeValueObject>(new DateTimeValueObject({ value: dateTime }))
   }
 }
